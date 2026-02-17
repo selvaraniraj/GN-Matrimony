@@ -1,0 +1,1753 @@
+{
+    "info":  {
+                 "name":  "Matrimony API",
+                 "_postman_id":  "12345678-1234-1234-1234-123456789012",
+                 "description":  "Matrimony API Collection",
+                 "schema":  "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+             },
+    "variable":  [
+                     {
+                         "key":  "base_url",
+                         "value":  "matrimony.globalnadars.com"
+                     },
+                     {
+                         "key":  "sanctum_token",
+                         "value":  ""
+                     }
+                 ],
+    "item":  [
+                 {
+                     "name":  "Auth",
+                     "item":  [
+                                  {
+                                      "name":  "Login",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/login",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "login"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"email\":  \"naresh@gmail.com\",\r\n    \"password\":  \"NARESH_1@123\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Logout",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/logout",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "logout"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"action\":  \"logout\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "Registration \u0026 OTP",
+                     "item":  [
+                                  {
+                                      "name":  "Register",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/register",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "register"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"name\":  \"Api Test User\",\r\n    \"mobile_number\":  \"9876543210\",\r\n    \"email\":  \"test@gmail.com\",\r\n    \"created_by_relation\":  \"self\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Verify OTP",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/register/verify-otp",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "register",
+                                                                               "verify-otp"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"user_id\":  1,\r\n    \"otp\":  111111,\r\n    \"created_by_relation\":  \"self\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "Member Form - Add",
+                     "item":  [
+                                  {
+                                      "name":  "Basic Add",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/basic-add",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "basic-add"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"name\":  \"Api Test User\",\r\n    \"association_id\":  1,\r\n    \"created_by_relation\":  \"self\",\r\n    \"email\":  \"test@gmail.com\",\r\n    \"gender\":  \"male\",\r\n    \"dob\":  \"1995-06-15\",\r\n    \"mobile\":  \"9876543210\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Ethinicity Add",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/ethinicity-add",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "ethinicity-add"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"religion\":  \"Hindu\",\r\n    \"mothertongue\":  \"Tamil\",\r\n    \"caste\":  \"Nadar\",\r\n    \"subcaste\":  \"Saiva\",\r\n    \"village_temple\":  \"Mariamman\",\r\n    \"family_god\":  \"Murugan\",\r\n    \"language\":  [\r\n                     \"Tamil\",\r\n                     \"English\"\r\n                 ]\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Horoscope Add",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/horoscope-add",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "horoscope-add"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"raasi\":  3,\r\n    \"star\":  7,\r\n    \"hrs\":  \"10\",\r\n    \"mins\":  \"30\",\r\n    \"am\":  \"AM\",\r\n    \"birth_place\":  \"Madurai\",\r\n    \"old_horoscope_image\":  \"\",\r\n    \"dosham\":  \"No\",\r\n    \"dosam_detail\":  \"\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Horoscope Detail Add",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/horoscope-detail-add",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "horoscope-detail-add"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"rasi_1\":  \"Su\",\r\n    \"rasi_2\":  \"Mo\",\r\n    \"rasi_3\":  \"Ma\",\r\n    \"rasi_4\":  \"Me\",\r\n    \"rasi_5\":  \"Ju\",\r\n    \"rasi_6\":  \"Ve\",\r\n    \"rasi_7\":  \"Sa\",\r\n    \"rasi_8\":  \"Ra\",\r\n    \"rasi_9\":  \"Ke\",\r\n    \"rasi_10\":  \"\",\r\n    \"rasi_11\":  \"\",\r\n    \"rasi_12\":  \"\",\r\n    \"Navamsam_1\":  \"Su\",\r\n    \"Navamsam_2\":  \"Mo\",\r\n    \"Navamsam_3\":  \"Ma\",\r\n    \"Navamsam_4\":  \"Me\",\r\n    \"Navamsam_5\":  \"Ju\",\r\n    \"Navamsam_6\":  \"Ve\",\r\n    \"Navamsam_7\":  \"Sa\",\r\n    \"Navamsam_8\":  \"Ra\",\r\n    \"Navamsam_9\":  \"Ke\",\r\n    \"Navamsam_10\":  \"\",\r\n    \"Navamsam_11\":  \"\",\r\n    \"Navamsam_12\":  \"\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Profile Add",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/profile-add",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "profile-add"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"body_composition\":  \"Athletic\",\r\n    \"height\":  12,\r\n    \"weight\":  70,\r\n    \"deficiency\":  0,\r\n    \"eating_habits\":  1,\r\n    \"alcholism\":  0,\r\n    \"smoking_habits\":  0,\r\n    \"about_you\":  \"Simple and family-oriented person.\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Personal Add",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/personal-add",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "personal-add"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"family_status\":  \"Middle Class\",\r\n    \"family_type\":  \"Nuclear\",\r\n    \"family_value\":  \"Traditional\",\r\n    \"paternity\":  \"Business\",\r\n    \"mother_status\":  \"Homemaker\",\r\n    \"no_brothers\":  1,\r\n    \"no_sisters\":  1,\r\n    \"father_name\":  \"Raja\",\r\n    \"mother_name\":  \"Lakshmi\",\r\n    \"brothers_married\":  0,\r\n    \"sisters_married\":  0,\r\n    \"parent_contact\":  \"9876543210\",\r\n    \"ancestral_origin\":  \"Tirunelveli\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Address Add",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/address-add",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "address-add"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"state\":  31,\r\n    \"city\":  301,\r\n    \"taluk\":  401,\r\n    \"village\":  \"Ayyanarpuram\",\r\n    \"pincode\":  \"625001\",\r\n    \"doorno\":  \"12/7\",\r\n    \"landmark\":  \"Near Temple\",\r\n    \"other_address\":  2,\r\n    \"permanent_state\":  31,\r\n    \"permanent_city\":  302,\r\n    \"permanent_taluk\":  402,\r\n    \"permanent_village\":  \"Koodal Nagar\",\r\n    \"permanent_pincode\":  \"625018\",\r\n    \"permanent_doorno\":  \"18/4B\",\r\n    \"permanent_landmark\":  \"Bus Stand Backside\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Professional Add",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/professional-add",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "professional-add"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"education\":  [\r\n                      2,\r\n                      5\r\n                  ],\r\n    \"collage_school\":  [\r\n                           \"ABC College\",\r\n                           \"XYZ Institute\"\r\n                       ],\r\n    \"employed_in\":  \"Private\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Occupational Add",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/occupational-add",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "occupational-add"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"profession\":  \"Software Engineer\",\r\n    \"company_name\":  \"ABC Tech Pvt Ltd\",\r\n    \"destination\":  \"Senior Developer\",\r\n    \"income\":  \"850000\",\r\n    \"work_location\":  \"India\",\r\n    \"state\":  31,\r\n    \"city\":  301,\r\n    \"taluk\":  401,\r\n    \"pincode\":  \"625001\",\r\n    \"address\":  \"Tidel Park, Madurai\",\r\n    \"passport_number\":  \"\",\r\n    \"visa_type\":  \"\",\r\n    \"other_country_address\":  \"\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Hobby Add",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/hobby-add",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "hobby-add"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"hobbies\":  [\r\n                    \"Reading\",\r\n                    \"Travel\"\r\n                ],\r\n    \"other_hobbies\":  \"Gardening\",\r\n    \"music\":  [\r\n                  \"Melody\"\r\n              ],\r\n    \"other_music\":  \"Classical\",\r\n    \"sports_hobbies\":  [\r\n                           \"Cricket\"\r\n                       ],\r\n    \"other_sports\":  \"Badminton\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Partner Add",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/partner-add",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "partner-add"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"age_from\":  24,\r\n    \"age_to\":  30,\r\n    \"height_from\":  10,\r\n    \"height_to\":  16,\r\n    \"per_religion\":  \"Hindu\",\r\n    \"par_mother_tongue\":  \"Tamil\",\r\n    \"par_caste\":  \"Nadar\",\r\n    \"par_star\":  [\r\n                     2,\r\n                     5\r\n                 ],\r\n    \"par_raasi\":  [\r\n                      3,\r\n                      6\r\n                  ],\r\n    \"education\":  [\r\n                      2,\r\n                      5\r\n                  ],\r\n    \"par_dhosam\":  \"No\",\r\n    \"par_income\":  \"500000\",\r\n    \"about_partner\":  \"Looking for caring and understanding partner.\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Relative Add",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/relative-add",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "relative-add"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"first_relative_name\":  \"Suresh\",\r\n    \"first_relative_relation\":  \"Uncle\",\r\n    \"first_relative_bussiness\":  \"Business\",\r\n    \"first_relative_number\":  \"9876500001\",\r\n    \"second_name\":  \"Mahesh\",\r\n    \"second_relation_type\":  \"Cousin\",\r\n    \"second_profession\":  \"Engineer\",\r\n    \"second_contact\":  \"9876500002\",\r\n    \"third_name\":  \"Ramesh\",\r\n    \"third_relation_type\":  \"Friend\",\r\n    \"third_profession\":  \"Teacher\",\r\n    \"third_contact\":  \"9876500003\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Photo Add",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/photo-add",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "photo-add"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"up_photo\":  [\r\n                     \"assets/images/photos/sample1.jpg\"\r\n                 ],\r\n    \"note\":  \"For real upload, switch to form-data and send photo[] file(s).\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Profile Update All",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/profile-update-all",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "profile-update-all"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"member\":  1,\r\n    \"name\":  \"Api Test User\",\r\n    \"association_id\":  1,\r\n    \"created_by_relation\":  \"self\",\r\n    \"email\":  \"test@gmail.com\",\r\n    \"gender\":  \"male\",\r\n    \"dob\":  \"1995-06-15\",\r\n    \"mobile\":  \"9876543210\",\r\n    \"religion\":  \"Hindu\",\r\n    \"mothertongue\":  \"Tamil\",\r\n    \"caste\":  \"Nadar\",\r\n    \"subcaste\":  \"Saiva\",\r\n    \"village_temple\":  \"Mariamman\",\r\n    \"family_god\":  \"Murugan\",\r\n    \"language\":  [\r\n                     \"Tamil\",\r\n                     \"English\"\r\n                 ],\r\n    \"raasi\":  3,\r\n    \"star\":  7,\r\n    \"hrs\":  \"10\",\r\n    \"mins\":  \"30\",\r\n    \"am\":  \"AM\",\r\n    \"birth_place\":  \"Madurai\",\r\n    \"old_horoscope_image\":  \"\",\r\n    \"dosham\":  \"No\",\r\n    \"dosam_detail\":  \"\",\r\n    \"rasi_1\":  \"Su\",\r\n    \"rasi_2\":  \"Mo\",\r\n    \"rasi_3\":  \"Ma\",\r\n    \"rasi_4\":  \"Me\",\r\n    \"rasi_5\":  \"Ju\",\r\n    \"rasi_6\":  \"Ve\",\r\n    \"rasi_7\":  \"Sa\",\r\n    \"rasi_8\":  \"Ra\",\r\n    \"rasi_9\":  \"Ke\",\r\n    \"rasi_10\":  \"La\",\r\n    \"rasi_11\":  \"Ne\",\r\n    \"rasi_12\":  \"Pl\",\r\n    \"Navamsam_1\":  \"Su\",\r\n    \"Navamsam_2\":  \"Mo\",\r\n    \"Navamsam_3\":  \"Ma\",\r\n    \"Navamsam_4\":  \"Me\",\r\n    \"Navamsam_5\":  \"Ju\",\r\n    \"Navamsam_6\":  \"Ve\",\r\n    \"Navamsam_7\":  \"Sa\",\r\n    \"Navamsam_8\":  \"Ra\",\r\n    \"Navamsam_9\":  \"Ke\",\r\n    \"Navamsam_10\":  \"La\",\r\n    \"Navamsam_11\":  \"Ne\",\r\n    \"Navamsam_12\":  \"Pl\",\r\n    \"body_composition\":  \"Athletic\",\r\n    \"height\":  12,\r\n    \"weight\":  68,\r\n    \"deficiency\":  0,\r\n    \"eating_habits\":  1,\r\n    \"alcholism\":  0,\r\n    \"smoking_habits\":  0,\r\n    \"about_you\":  \"Simple and family oriented person.\",\r\n    \"family_status\":  \"Middle Class\",\r\n    \"family_type\":  \"Joint Family\",\r\n    \"family_value\":  \"Traditional\",\r\n    \"paternity\":  \"Businessman\",\r\n    \"mother_status\":  \"Homemaker\",\r\n    \"no_brothers\":  1,\r\n    \"no_sisters\":  1,\r\n    \"father_name\":  \"Raman\",\r\n    \"mother_name\":  \"Lakshmi\",\r\n    \"brothers_married\":  0,\r\n    \"sisters_married\":  1,\r\n    \"parent_contact\":  \"9876500000\",\r\n    \"ancestral_origin\":  \"Sivakasi\",\r\n    \"state\":  31,\r\n    \"city\":  301,\r\n    \"taluk\":  401,\r\n    \"village\":  \"Ayyanarpuram\",\r\n    \"pincode\":  \"625001\",\r\n    \"doorno\":  \"12/7\",\r\n    \"landmark\":  \"Near Temple\",\r\n    \"other_address\":  2,\r\n    \"permanent_state\":  31,\r\n    \"permanent_city\":  302,\r\n    \"permanent_taluk\":  402,\r\n    \"permanent_village\":  \"Koodal Nagar\",\r\n    \"permanent_pincode\":  \"625018\",\r\n    \"permanent_doorno\":  \"18/4B\",\r\n    \"permanent_landmark\":  \"Bus Stand Backside\",\r\n    \"education\":  [\r\n                      2,\r\n                      5\r\n                  ],\r\n    \"collage_school\":  [\r\n                           \"MKU\",\r\n                           \"Anna University\"\r\n                       ],\r\n    \"organization\":  \"ABC Tech Pvt Ltd\",\r\n    \"employed_in\":  \"Private\",\r\n    \"profession\":  \"Software Engineer\",\r\n    \"company_name\":  \"ABC Tech Pvt Ltd\",\r\n    \"destination\":  \"Senior Developer\",\r\n    \"income\":  \"850000\",\r\n    \"work_location\":  \"India\",\r\n    \"address\":  \"Tidel Park, Madurai\",\r\n    \"passport_number\":  \"\",\r\n    \"visa_type\":  \"\",\r\n    \"other_country_address\":  \"\",\r\n    \"hobbies\":  [\r\n                    \"Reading\",\r\n                    \"Traveling\"\r\n                ],\r\n    \"other_hobbies\":  \"Gardening\",\r\n    \"music\":  [\r\n                  \"Melody\",\r\n                  \"Devotional\"\r\n              ],\r\n    \"other_music\":  \"Instrumental\",\r\n    \"sports_hobbies\":  [\r\n                           \"Cricket\",\r\n                           \"Chess\"\r\n                       ],\r\n    \"other_sports\":  \"Badminton\",\r\n    \"age_from\":  24,\r\n    \"age_to\":  30,\r\n    \"height_from\":  10,\r\n    \"height_to\":  16,\r\n    \"per_religion\":  \"Hindu\",\r\n    \"par_mother_tongue\":  \"Tamil\",\r\n    \"par_caste\":  \"Nadar\",\r\n    \"par_star\":  [\r\n                     5,\r\n                     7,\r\n                     9\r\n                 ],\r\n    \"par_raasi\":  [\r\n                      2,\r\n                      3,\r\n                      4\r\n                  ],\r\n    \"par_dhosam\":  \"No\",\r\n    \"par_income\":  \"500000\",\r\n    \"about_partner\":  \"Looking for a caring and educated partner.\",\r\n    \"first_relative_name\":  \"Suresh\",\r\n    \"first_relative_relation\":  \"Uncle\",\r\n    \"first_relative_bussiness\":  \"Business\",\r\n    \"first_relative_number\":  \"9876501111\",\r\n    \"second_name\":  \"Meena\",\r\n    \"second_relation_type\":  \"Aunt\",\r\n    \"second_profession\":  \"Teacher\",\r\n    \"second_contact\":  \"9876502222\",\r\n    \"third_name\":  \"Karthik\",\r\n    \"third_relation_type\":  \"Cousin\",\r\n    \"third_profession\":  \"Engineer\",\r\n    \"third_contact\":  \"9876503333\",\r\n    \"up_photo\":  [\r\n                     \"assets/images/photos/sample1.jpg\",\r\n                     \"assets/images/photos/sample2.jpg\"\r\n                 ]\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "Member Form - Skip",
+                     "item":  [
+                                  {
+                                      "name":  "Basic Skip",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/basic-skip",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "basic-skip"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"name\":  \"Api Test User\",\r\n    \"association_id\":  1,\r\n    \"created_by_relation\":  \"self\",\r\n    \"email\":  \"test@gmail.com\",\r\n    \"gender\":  \"male\",\r\n    \"dob\":  \"1995-06-15\",\r\n    \"mobile\":  \"9876543210\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Ethinicity Skip",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/ethinicity-skip",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "ethinicity-skip"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"religion\":  \"Hindu\",\r\n    \"mothertongue\":  \"Tamil\",\r\n    \"caste\":  \"Nadar\",\r\n    \"subcaste\":  \"Saiva\",\r\n    \"village_temple\":  \"Mariamman\",\r\n    \"family_god\":  \"Murugan\",\r\n    \"language\":  [\r\n                     \"Tamil\",\r\n                     \"English\"\r\n                 ]\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Horoscope Skip",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/horoscope-skip",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "horoscope-skip"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"raasi\":  3,\r\n    \"star\":  7,\r\n    \"hrs\":  \"10\",\r\n    \"mins\":  \"30\",\r\n    \"am\":  \"AM\",\r\n    \"birth_place\":  \"Madurai\",\r\n    \"old_horoscope_image\":  \"\",\r\n    \"dosham\":  \"No\",\r\n    \"dosam_detail\":  \"\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Horoscope Detail Skip",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/horoscope-detail-skip",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "horoscope-detail-skip"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"rasi_1\":  \"Su\",\r\n    \"rasi_2\":  \"Mo\",\r\n    \"rasi_3\":  \"Ma\",\r\n    \"rasi_4\":  \"Me\",\r\n    \"rasi_5\":  \"Ju\",\r\n    \"rasi_6\":  \"Ve\",\r\n    \"rasi_7\":  \"Sa\",\r\n    \"rasi_8\":  \"Ra\",\r\n    \"rasi_9\":  \"Ke\",\r\n    \"rasi_10\":  \"\",\r\n    \"rasi_11\":  \"\",\r\n    \"rasi_12\":  \"\",\r\n    \"Navamsam_1\":  \"Su\",\r\n    \"Navamsam_2\":  \"Mo\",\r\n    \"Navamsam_3\":  \"Ma\",\r\n    \"Navamsam_4\":  \"Me\",\r\n    \"Navamsam_5\":  \"Ju\",\r\n    \"Navamsam_6\":  \"Ve\",\r\n    \"Navamsam_7\":  \"Sa\",\r\n    \"Navamsam_8\":  \"Ra\",\r\n    \"Navamsam_9\":  \"Ke\",\r\n    \"Navamsam_10\":  \"\",\r\n    \"Navamsam_11\":  \"\",\r\n    \"Navamsam_12\":  \"\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Profile Skip",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/profile-skip",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "profile-skip"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"body_composition\":  \"Athletic\",\r\n    \"height\":  12,\r\n    \"weight\":  70,\r\n    \"deficiency\":  0,\r\n    \"eating_habits\":  1,\r\n    \"alcholism\":  0,\r\n    \"smoking_habits\":  0,\r\n    \"about_you\":  \"Simple and family-oriented person.\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Personal Skip",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/personal-skip",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "personal-skip"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"family_status\":  \"Middle Class\",\r\n    \"family_type\":  \"Nuclear\",\r\n    \"family_value\":  \"Traditional\",\r\n    \"paternity\":  \"Business\",\r\n    \"mother_status\":  \"Homemaker\",\r\n    \"no_brothers\":  1,\r\n    \"no_sisters\":  1,\r\n    \"father_name\":  \"Raja\",\r\n    \"mother_name\":  \"Lakshmi\",\r\n    \"brothers_married\":  0,\r\n    \"sisters_married\":  0,\r\n    \"parent_contact\":  \"9876543210\",\r\n    \"ancestral_origin\":  \"Tirunelveli\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Address Skip",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/address-skip",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "address-skip"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"state\":  31,\r\n    \"city\":  301,\r\n    \"taluk\":  401,\r\n    \"village\":  \"Ayyanarpuram\",\r\n    \"pincode\":  \"625001\",\r\n    \"doorno\":  \"12/7\",\r\n    \"landmark\":  \"Near Temple\",\r\n    \"other_address\":  2,\r\n    \"permanent_state\":  31,\r\n    \"permanent_city\":  302,\r\n    \"permanent_taluk\":  402,\r\n    \"permanent_village\":  \"Koodal Nagar\",\r\n    \"permanent_pincode\":  \"625018\",\r\n    \"permanent_doorno\":  \"18/4B\",\r\n    \"permanent_landmark\":  \"Bus Stand Backside\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Professional Skip",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/professional-skip",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "professional-skip"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"education\":  [\r\n                      2,\r\n                      5\r\n                  ],\r\n    \"collage_school\":  [\r\n                           \"ABC College\",\r\n                           \"XYZ Institute\"\r\n                       ],\r\n    \"employed_in\":  \"Private\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Occupational Skip",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/occupational-skip",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "occupational-skip"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"profession\":  \"Software Engineer\",\r\n    \"company_name\":  \"ABC Tech Pvt Ltd\",\r\n    \"destination\":  \"Senior Developer\",\r\n    \"income\":  \"850000\",\r\n    \"work_location\":  \"India\",\r\n    \"state\":  31,\r\n    \"city\":  301,\r\n    \"taluk\":  401,\r\n    \"pincode\":  \"625001\",\r\n    \"address\":  \"Tidel Park, Madurai\",\r\n    \"passport_number\":  \"\",\r\n    \"visa_type\":  \"\",\r\n    \"other_country_address\":  \"\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Hobby Skip",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/hobby-skip",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "hobby-skip"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"hobbies\":  [\r\n                    \"Reading\",\r\n                    \"Travel\"\r\n                ],\r\n    \"other_hobbies\":  \"Gardening\",\r\n    \"music\":  [\r\n                  \"Melody\"\r\n              ],\r\n    \"other_music\":  \"Classical\",\r\n    \"sports_hobbies\":  [\r\n                           \"Cricket\"\r\n                       ],\r\n    \"other_sports\":  \"Badminton\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Partner Skip",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/partner-skip",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "partner-skip"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"age_from\":  24,\r\n    \"age_to\":  30,\r\n    \"height_from\":  10,\r\n    \"height_to\":  16,\r\n    \"per_religion\":  \"Hindu\",\r\n    \"par_mother_tongue\":  \"Tamil\",\r\n    \"par_caste\":  \"Nadar\",\r\n    \"par_star\":  [\r\n                     2,\r\n                     5\r\n                 ],\r\n    \"par_raasi\":  [\r\n                      3,\r\n                      6\r\n                  ],\r\n    \"education\":  [\r\n                      2,\r\n                      5\r\n                  ],\r\n    \"par_dhosam\":  \"No\",\r\n    \"par_income\":  \"500000\",\r\n    \"about_partner\":  \"Looking for caring and understanding partner.\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Relative Skip",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/relative-skip",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "relative-skip"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"first_relative_name\":  \"Suresh\",\r\n    \"first_relative_relation\":  \"Uncle\",\r\n    \"first_relative_bussiness\":  \"Business\",\r\n    \"first_relative_number\":  \"9876500001\",\r\n    \"second_name\":  \"Mahesh\",\r\n    \"second_relation_type\":  \"Cousin\",\r\n    \"second_profession\":  \"Engineer\",\r\n    \"second_contact\":  \"9876500002\",\r\n    \"third_name\":  \"Ramesh\",\r\n    \"third_relation_type\":  \"Friend\",\r\n    \"third_profession\":  \"Teacher\",\r\n    \"third_contact\":  \"9876500003\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Photo Skip",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/photo-skip",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "photo-skip"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"up_photo\":  [\r\n                     \"assets/images/photos/sample1.jpg\"\r\n                 ],\r\n    \"note\":  \"For real upload, switch to form-data and send photo[] file(s).\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "Search \u0026 Matches",
+                     "item":  [
+                                  {
+                                      "name":  "Matches",
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/matches?per_page=10",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "matches"
+                                                                           ],
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "per_page",
+                                                                                    "value":  "10",
+                                                                                    "disabled":  true
+                                                                                }
+                                                                            ]
+                                                              }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Matches Filter",
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/matches-filter?duration=1\u0026photo=1\u0026height1=10\u0026height=16\u0026age_val1=23\u0026age_val=30\u0026per_page=10",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "matches-filter"
+                                                                           ],
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "duration",
+                                                                                    "value":  "1"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "photo",
+                                                                                    "value":  "1"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "height1",
+                                                                                    "value":  "10"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "height",
+                                                                                    "value":  "16"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "age_val1",
+                                                                                    "value":  "23"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "age_val",
+                                                                                    "value":  "30"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "per_page",
+                                                                                    "value":  "10"
+                                                                                }
+                                                                            ]
+                                                              }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Featured Profiles",
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/featured-profiles?per_page=10",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "featured-profiles"
+                                                                           ],
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "per_page",
+                                                                                    "value":  "10",
+                                                                                    "disabled":  true
+                                                                                }
+                                                                            ]
+                                                              }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Search",
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/search?search_id=GNM12345\u0026keyword=Priya\u0026age_from=23\u0026age_to=30\u0026height_from=10\u0026height_to=16\u0026per_page=10",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "search"
+                                                                           ],
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "search_id",
+                                                                                    "value":  "GNM12345"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "keyword",
+                                                                                    "value":  "Priya"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "age_from",
+                                                                                    "value":  "23"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "age_to",
+                                                                                    "value":  "30"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "height_from",
+                                                                                    "value":  "10"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "height_to",
+                                                                                    "value":  "16"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "per_page",
+                                                                                    "value":  "10"
+                                                                                }
+                                                                            ]
+                                                              }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  }
+                              ]
+                 },
+                 {
+                     "name":  "User Actions",
+                     "item":  [
+                                  {
+                                      "name":  "Interest",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/interest",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "interest"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"members_id\":  12,\r\n    \"action\":  \"like\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Interest List",
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/interest-list",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "interest-list"
+                                                                           ]
+                                                              }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Contact Request",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/contact-request",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "contact-request"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"profile_id\":  12,\r\n    \"user_id\":  45,\r\n    \"name\":  \"Priya\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "View Request",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/view-request",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "view-request"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"profile_id\":  12,\r\n    \"user_id\":  45,\r\n    \"name\":  \"Priya\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Contact Request List",
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/contact-request-list",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "contact-request-list"
+                                                                           ]
+                                                              }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Photo Request",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/photo-request",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "photo-request"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"profile_id\":  12,\r\n    \"user_id\":  45,\r\n    \"name\":  \"Priya\"\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Photo Request List",
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/photo-request-list",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "photo-request-list"
+                                                                           ]
+                                                              }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "User Details",
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/user-details?member_id=12\u0026profile_id=GNM12345",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "user-details"
+                                                                           ],
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "member_id",
+                                                                                    "value":  "12"
+                                                                                },
+                                                                                {
+                                                                                    "key":  "profile_id",
+                                                                                    "value":  "GNM12345"
+                                                                                }
+                                                                            ]
+                                                              }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "My Details",
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/my-details",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "my-details"
+                                                                           ]
+                                                              }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Approve Mobile",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/approve-mobile",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "approve-mobile"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"member_id\":  12,\r\n    \"profile_id\":  5\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Approve Photo",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/approve-photo",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "approve-photo"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"member_id\":  12,\r\n    \"profile_id\":  5\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Update Interest",
+                                      "request":  {
+                                                      "method":  "POST",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Content-Type",
+                                                                         "value":  "application/json"
+                                                                     },
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/update-interest",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "update-interest"
+                                                                           ]
+                                                              },
+                                                      "body":  {
+                                                                   "mode":  "raw",
+                                                                   "raw":  "{\r\n    \"liked_profile\":  12,\r\n    \"flag\":  2\r\n}"
+                                                               }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Request Sent",
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/request-sent?per_page=10",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "request-sent"
+                                                                           ],
+                                                                  "query":  [
+                                                                                {
+                                                                                    "key":  "per_page",
+                                                                                    "value":  "10"
+                                                                                }
+                                                                            ]
+                                                              }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  },
+                                  {
+                                      "name":  "Header Notifications",
+                                      "request":  {
+                                                      "method":  "GET",
+                                                      "header":  [
+                                                                     {
+                                                                         "key":  "Authorization",
+                                                                         "value":  "Bearer {{sanctum_token}}"
+                                                                     }
+                                                                 ],
+                                                      "url":  {
+                                                                  "raw":  "https://{{base_url}}/api/member/header-notifications",
+                                                                  "protocol":  "https",
+                                                                  "host":  [
+                                                                               "{{base_url}}"
+                                                                           ],
+                                                                  "path":  [
+                                                                               "api",
+                                                                               "member",
+                                                                               "header-notifications"
+                                                                           ]
+                                                              }
+                                                  },
+                                      "response":  [
+
+                                                   ]
+                                  }
+                              ]
+                 }
+             ]
+}

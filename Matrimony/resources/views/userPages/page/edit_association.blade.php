@@ -1,0 +1,121 @@
+@extends ('layout2.partials.association-header')
+@section('main') 
+   <h2 class="new-association-heading">Update Association Details</h2>
+    <hr class="custom-hr">
+    @if(session('success'))
+      <div class='alert alert-success'>
+        {{ session('success') }}
+      </div>a
+    @endif
+    @if ($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+@endif
+
+
+    <form method="POST" action="{{ route('association.submit', $association->id) }}" enctype="multipart/form-data">
+
+@csrf
+@method('PUT')
+<h4>Association</h4>
+      <hr>
+      <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-6">
+          <label for="association-name" class="font-weight-bold required-field">Association Name</label>
+          <input type="text" class="form-control mb-3" id="association-name" 
+          value="{{ old('association_name',$association->association_name)}}" name="association_name" placeholder="Enter association name" required>
+
+          <label for="association-phone" class="font-weight-bold required-field">Association Phone Number</label>
+          <input type="text" class="form-control mb-3" id="association-phone" 
+          name="association_phoneno" value="{{ old('association_phoneno',$association->association_phoneno)}}" placeholder="Enter phone number" required>
+
+          <label for="registration-number" class="font-weight-bold required-field">Registration Number</label>
+          <input type="text" class="form-control mb-3" id="registration-number" name="association_regno" 
+          value="{{ old('association_regno' ,$association->association_regno )}}" placeholder="Enter registration number" required>
+
+          <label for="president-name" class="font-weight-bold required-field">Association President</label>
+          <input type="text" class="form-control mb-3" id="president-name" name="association_head" 
+          value="{{ old('association_head',$association->association_head)}}" placeholder="Enter president's name" required>
+          <input type="text" class="form-control mb-3" id="president_number" name="president_number" 
+value="{{ old('president_number', $association->president_number) }}" placeholder="Enter president's phone number" required>
+     <label for="secretary-name" class="font-weight-bold required-field">Association Secretary</label>
+          <input type="text" class="form-control mb-3" id="secretary-name" name="secretary"
+           value="{{ old('secretary',$association->secretary) }}" placeholder="Enter secretary's name" required>
+          <input type="text" class="form-control mb-3" id="secretary-phone" 
+          name="secretary_number" value="{{ old('secretary_number' ,$association->secretary_number)}}" placeholder="Enter secretary's phone number" required>
+
+          <label for="treasurer-name" class="font-weight-bold required-field">Association Treasurer</label>
+          <input type="text" class="form-control mb-3" id="treasurer-name" name="treasurer" 
+          value="{{ old('treasurer',$association->treasurer_name) }}" placeholder="Enter treasurer's name" required>
+          <input type="text" class="form-control mb-3"
+           id="treasurer-phone" name="treasurer_number" value="{{ old('treasurer_number',$association->treasurer_number) }}" placeholder="Enter treasurer's phone number" required>
+
+          <label for="treasurer-email" class="font-weight-bold required-field">Email</label>
+          <input type="email" class="form-control mb-3" id="email" name="email" value="{{ old('email',$association->email)}}" placeholder="Enter email" required>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-md-6">
+          <label for="username" class="font-weight-bold required-field">Username</label>
+          <input type="text" class="form-control mb-3" id="username" name="username" 
+          value="{{ old('username',$association->username) }}" placeholder="Enter username" required>
+
+          
+
+          <label for="state" class="font-weight-bold required-field">State</label>
+          <select class="form-control mb-3" id="state" 
+          name="state" required>
+            <option value="">Select state</option>
+            <option value="State1" {{ old('state',$association->state) == 'State1' ? 'selected' : '' }}>State 1</option>
+            <option value="State2" {{ old('state',$association->state) == 'State2' ? 'selected' : '' }}>State 2</option>
+          </select>
+
+          <label for="city-district" class="font-weight-bold required-field">City/District</label>
+          <select class="form-control mb-3" id="city-district" name="city" required>
+            <option value="">Select city/district</option>
+            <option value="City1" {{ old('city',$association->city) == 'City1' ? 'selected' : '' }}>City 1</option>
+            <option value="City2" {{ old('city',$association->city) == 'City2' ? 'selected' : '' }}>City 2</option>
+          </select>
+
+          <label for="taluk" class="font-weight-bold required-field">Taluk</label>
+          <select class="form-control mb-3" id="taluk" name="taluk" required>
+            <option value="">Select taluk</option>
+            <option value="Taluk1" {{ old('taluk', $association->taluk) == 'Taluk1' ? 'selected' : '' }}>Taluk 1</option>
+  <option value="Taluk2" {{ old('taluk', $association->taluk) == 'Taluk2' ? 'selected' : '' }}>Taluk 2</option>
+</select>
+
+          <label for="village-name" class="font-weight-bold required-field">Village Name</label>
+          <input type="text" class="form-control mb-3" id="village-name"
+           name="village" value="{{ old('village',$association->village) }}" }}" placeholder="Enter village name" required>
+
+          <label for="address" class="font-weight-bold required-field">Address</label>
+          <textarea class="form-control mb-3" id="address" name="address" rows="3" 
+          placeholder="Enter address" required>{{ old('address',$association->address) }}</textarea>
+
+          <label for="logo" class="font-weight-bold required-field">Logo</label>
+          <input type="file" class="form-control mb-3" id="logo" name="image" 
+          >
+        </div>
+        
+  
+</div>
+
+      </div>
+
+      <div class="text-center mt-4">
+        <button type="submit" class="save-button">Update</button>
+      </div>
+    </form>
+  </div>
+
+  @include('layout2.partials.association-footer')
+
+</body>
+</html>
+@endsection
